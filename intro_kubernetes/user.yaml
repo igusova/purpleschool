@@ -1,0 +1,25 @@
+user:
+  isAdmin: true
+  name: Василий
+  age: 18
+  position: Архитектор
+  skills: 
+      - name: Java
+        level: 4
+        description: Уверенное владение Java
+      - name: DevOps
+        level: 3
+        description: Знание практик CI/CD
+  address: 
+    country: Россия
+    city: Москва
+    street: Ленина
+    house: 2
+    flat: 5
+  pets:
+    -  name: Кузя
+       breed: Метис
+       isMeow: yes
+    -  name: Бобик
+       breed: Малинуа
+       isMeow: no
