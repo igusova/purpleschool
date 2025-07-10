@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: short-app-port
+  name: conv-app-port
 spec:
   type: NodePort
   selector:
