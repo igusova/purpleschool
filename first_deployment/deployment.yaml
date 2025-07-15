@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: conv-app
-          image: antonlarichev/conv-app    
+          image: antonlarichev/conv-app
           ports:
             - containerPort: 80
           resources:
