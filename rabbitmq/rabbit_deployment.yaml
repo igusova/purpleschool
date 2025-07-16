@@ -14,7 +14,7 @@ spec:
     spec:      
       containers:
       - name: rabbitmq
-        image: rabbitmq:management
+        image: rabbitmq:latest
         resources:
           limits:
             memory: "500Mi"
