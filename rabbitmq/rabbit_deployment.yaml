@@ -14,7 +14,7 @@ spec:
     spec:      
       containers:
       - name: rabbitmq
-        image: management-alpine
+        image: rabbitmq:management
         resources:
           limits:
             memory: "500Mi"
@@ -25,12 +25,12 @@ spec:
         - containerPort: 15672
           protocol: TCP
         env:        
-          - name: RABBITMQ_DEFAULT_USER
+          - name: SEED_USERNAME
             valueFrom: 
               secretKeyRef: 
                 name: rabbit-secret
                 key: SEED_USERNAME                
-          - name: RABBITMQ_DEFAULT_PASS
+          - name: SEED_USER_PASSWORD
             valueFrom: 
               secretKeyRef: 
                 name: rabbit-secret
