@@ -24,11 +24,17 @@ spec:
           protocol: TCP
         - containerPort: 15672
           protocol: TCP
-        env:
+        env:        
           - name: RABBITMQ_DEFAULT_USER
-            value: SEED_USERNAME
+            valueFrom: 
+              secretKeyRef: 
+                name: rabbit-secret
+                key: SEED_USERNAME                
           - name: RABBITMQ_DEFAULT_PASS
-            value: SEED_USER_PASSWORD
+            valueFrom: 
+              secretKeyRef: 
+                name: rabbit-secret
+                key: SEED_USER_PASSWORD    
         volumeMounts:
           - name: rabbit-data
             mountPath: /var/lib/rabbitmq
