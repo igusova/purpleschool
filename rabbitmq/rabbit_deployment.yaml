@@ -14,7 +14,7 @@ spec:
     spec:      
       containers:
       - name: rabbitmq
-        image: rabbitmq:4.1.2
+        image: rabbitmq:management
         resources:
           limits:
             memory: "500Mi"
@@ -26,15 +26,9 @@ spec:
           protocol: TCP
         env:        
           - name: SEED_USERNAME
-            valueFrom: 
-              secretKeyRef: 
-                name: rabbit-secret
-                key: SEED_USERNAME                
+            value: demo             
           - name: SEED_USER_PASSWORD
-            valueFrom: 
-              secretKeyRef: 
-                name: rabbit-secret
-                key: SEED_USER_PASSWORD    
+            value: demo   
         volumeMounts:
           - name: rabbit-data
             mountPath: /var/lib/rabbitmq
