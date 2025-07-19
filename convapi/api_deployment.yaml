@@ -33,7 +33,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: rabbit-secret
-                key: SEED_PASSWORD  
+                key: SEED_USER_PASSWORD
           - name: AMQP_HOSTNAME
             value: rabbit-clusterip        
         volumeMounts:
