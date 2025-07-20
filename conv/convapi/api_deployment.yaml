@@ -35,7 +35,9 @@ spec:
                 name: rabbit-secret
                 key: SEED_USER_PASSWORD
           - name: AMQP_HOSTNAME
-            value: rabbit-clusterip        
+            value: rabbit-clusterip
+          - name: AMQP_QUEUE
+            value: test       
         volumeMounts:
           - name: api-data
             mountPath: /opt/app/uploads

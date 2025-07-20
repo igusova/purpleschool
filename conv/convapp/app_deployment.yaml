@@ -29,5 +29,5 @@ spec:
             - name: VITE_DOMAIN
               valueFrom:
                 configMapKeyRef:
-                  name: demo-config
+                  name: conv-app-config
                   key: VITE_DOMAIN          

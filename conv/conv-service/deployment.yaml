@@ -1,11 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: conv-service
+  name: conv-service-deployment
 spec:
+  replicas: 5
   selector:
     matchLabels:
-      components: conv-service-deployment
+      components: conv-service
   template:
     metadata:
       labels:
