@@ -23,5 +23,5 @@ spec:
             - name: VITE_DOMAIN
               valueFrom:
                 configMapKeyRef:
-                  name: {{ .Values.app.name }}config
+                  name: {{ .Values.app.name }}-config
                   key: VITE_DOMAIN          
