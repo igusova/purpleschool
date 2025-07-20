@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: conv-api-deployment
+  name: conv-service-deployment
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
-      components: backend
+      components: conv-service
   template:
     metadata:
       labels:
-        components: backend
+        components: conv-service
     spec:
       containers:
-      - name: conv-api
-        image: antonlarichev/conv-api:1.0
+      - name: conv-service
+        image: antonlarichev/conv-service:1.0
         resources:
           limits:
-            memory: "500Mi"
+            memory: "128Mi"
             cpu: "200m"
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
         env:
           - name: AMQP_EXCHANGE
             value: test          
@@ -35,11 +35,7 @@ spec:
                 name: rabbit-secret
                 key: SEED_USER_PASSWORD
           - name: AMQP_HOSTNAME
-            value: rabbit-clusterip        
-        volumeMounts:
-          - name: api-data
-            mountPath: /opt/app/uploads
-      volumes: 
-        - name: api-data
-          persistentVolumeClaim:
-            claimName: api-pvc
+            value: rabbit-clusterip
+          - name: AMQP_QUEUE
+            value: test
+          
