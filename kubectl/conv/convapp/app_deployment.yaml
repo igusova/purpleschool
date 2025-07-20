@@ -21,10 +21,6 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "300m"
-          volumeMounts: 
-          - name: test
-            mountPath: /etc/test
-            readOnly: true
           env:
             - name: VITE_DOMAIN
               valueFrom:
