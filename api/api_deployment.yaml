@@ -27,3 +27,20 @@ spec:
               secretKeyRef:
                 name: short-api-secret
                 key: DATABASE_URL
+        volumeMounts: 
+          - name: test
+            mountPath: /etc/test
+            readOnly: true
+        livenessProbe:
+          exec: 
+            command:
+              - curl
+              - --fail
+              - http://localhost:3000/api
+          initialDelaySeconds: 30
+          periodSeconds: 5
+          failureThredhold: 1 
+      volumes:
+        - name: test
+          configMap:
+            name: demo-config
