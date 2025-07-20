@@ -18,10 +18,10 @@ spec:
           ports:
             - containerPort: {{ .Values.app.port }}
           resources:
-            limits: {{ .Values.app.limits | toYaml | nintend 14 }}
+            limits: {{ .Values.app.limits | toYaml | nindent 14 }}
           env:
             - name: VITE_DOMAIN
               valueFrom:
                 configMapKeyRef:
-                  name: conv-app-config
+                  name: {{ .Values.app.name }}config
                   key: VITE_DOMAIN          
