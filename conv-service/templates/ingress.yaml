@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: conv-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/add-base-url: "true"
+  labels:
+    app.kubernetes.io/name: conv-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: {{ .Values.app.domain }}
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: {{ .Values.app.name }}-clusterip
+            port: 
+              number: {{ .Values.app.port }}
+    
